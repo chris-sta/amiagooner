@@ -15,22 +15,52 @@
   </div>
 
   <script>
-    const score = Number(localStorage.getItem("goonerScore") || 0);
-    let result = "";
+  const score = Number(localStorage.getItem("goonerScore") || 0);
+  let result = "";
 
-    if (score < 10) {
-      result = "🍼 Casual Observer – still in denial.";
-    } else if (score < 20) {
-      result = "😏 Intermediate Stroker – flirting with obsession.";
-    } else if (score < 30) {
-      result = "🔥 Practicing Gooner – surrender is near.";
-    } else if (score < 40) {
-      result = "🧠 Mindless Edge Wizard – you've ascended.";
-    } else {
-      result = "👑 GOON GOD – totally consumed. You are the screen.";
-    }
+  if (score < 10) {
+    result = "🍼 Casual Observer – still in denial.";
+  } else if (score < 20) {
+    result = "😏 Intermediate Stroker – flirting with obsession.";
+  } else if (score < 30) {
+    result = "🔥 Practicing Gooner – surrender is near.";
+  } else if (score < 40) {
+    result = "🧠 Mindless Edge Wizard – you've ascended.";
+  } else {
+    result = "👑 GOON GOD – totally consumed. You are the screen.";
+  }
 
-    document.getElementById("result").textContent = result;
-  </script>
+  document.getElementById("result").textContent = result;
+
+  // Encode the result for the share message
+  const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
+
+  function shareTwitter() {
+    window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
+  }
+
+  function shareFacebook() {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
+  }
+
+  function shareWhatsApp() {
+    window.open(`https://wa.me/?text=${shareText}`, '_blank');
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText("https://amiagooner.com/results.html").then(() => {
+      alert("Link copied to clipboard!");
+    });
+  }
+</script>
+
+  <div id="share-section">
+  <p>Share your result:</p>
+  <button onclick="shareTwitter()">Twitter / X</button>
+  <button onclick="shareFacebook()">Facebook</button>
+  <button onclick="shareWhatsApp()">WhatsApp</button>
+  <button onclick="copyLink()">Copy Link</button>
+</div>
+
 </body>
 </html>
