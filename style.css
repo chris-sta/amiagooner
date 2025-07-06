@@ -1,11 +1,17 @@
+/* Base Reset & Responsive Setup */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
   color: #333;
   margin: 0;
-  padding: 2rem;
+  padding: 1rem;
 }
 
+/* Container Styling */
 .container {
   max-width: 600px;
   margin: auto;
@@ -15,10 +21,42 @@ body {
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
+/* Typography */
 h1 {
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 
+/* Navigation Bar */
+nav {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cc0000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Quiz Form */
 .question {
   margin-bottom: 1.5rem;
 }
@@ -26,8 +64,10 @@ h1 {
 label {
   display: block;
   margin: 0.5rem 0;
+  font-size: 1rem;
 }
 
+/* Button Styling */
 button {
   display: block;
   width: 100%;
@@ -38,14 +78,36 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #a30000;
 }
 
+/* Links */
 a {
   display: inline-block;
   margin-top: 1rem;
   color: #cc0000;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
 }
