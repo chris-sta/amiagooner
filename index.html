@@ -2,42 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Am I a Gooner?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to the Gooner Test</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
   <div class="container">
-    <h1>Am I a Gooner?</h1>
-    <form id="quiz-form">
-      <div class="question">
-        <p>1. Do you believe in the process?</p>
-        <label><input type="radio" name="q1" value="yes" required> Yes</label>
-        <label><input type="radio" name="q1" value="no"> No</label>
-      </div>
-
-      <div class="question">
-        <p>2. Do you shout "Saka Saka" at random moments?</p>
-        <label><input type="radio" name="q2" value="yes" required> Yes</label>
-        <label><input type="radio" name="q2" value="no"> No</label>
-      </div>
-
-      <div class="question">
-        <p>3. Have you ever blamed VAR for your life problems?</p>
-        <label><input type="radio" name="q3" value="yes" required> Yes</label>
-        <label><input type="radio" name="q3" value="no"> No</label>
-      </div>
-
-      <button type="submit">Find out</button>
-    </form>
+    <h1>Are You a Gooner?</h1>
+    <p>Take this 10-question journey to discover your true gooner nature. No login. No judgment. Just pure edge.</p>
+    <button onclick="startQuiz()">Begin the Test</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function startQuiz() {
+      localStorage.removeItem("goonerScore"); // Reset any previous score
+      window.location.href = "q1.html";       // Go to the first question
+    }
+  </script>
 </body>
 </html>
