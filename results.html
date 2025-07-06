@@ -1,52 +1,76 @@
-<script>
-  const score = Number(localStorage.getItem("goonerScore"));
-  let result = "";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Result</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Your Gooner Rating</h1>
+    <p id="result"></p>
+    <a href="/" style="display:block; margin-top:1rem; color:#cc0000;">Try Again</a>
 
-  if (isNaN(score)) {
-    // No score found, likely direct access
-    document.querySelector(".container").innerHTML = `
-      <h1>Oops!</h1>
-      <p>Looks like you haven’t taken the test yet.</p>
-      <a href="index.html">
-        <button>Take the Gooner Test</button>
-      </a>
-    `;
-    // Stop running further script since no score
-    return;
-  }
+    <div id="share-section" style="margin-top: 2rem; text-align:center;">
+      <p>Share your result:</p>
+      <button onclick="shareTwitter()">Twitter / X</button>
+      <button onclick="shareFacebook()">Facebook</button>
+      <button onclick="shareWhatsApp()">WhatsApp</button>
+      <button onclick="copyLink()">Copy Link</button>
+    </div>
+  </div>
 
-  if (score < 10) {
-    result = "🍼 Casual Observer – still in denial.";
-  } else if (score < 20) {
-    result = "😏 Intermediate Stroker – flirting with obsession.";
-  } else if (score < 30) {
-    result = "🔥 Practicing Gooner – surrender is near.";
-  } else if (score < 40) {
-    result = "🧠 Mindless Edge Wizard – you've ascended.";
-  } else {
-    result = "👑 GOON GOD – totally consumed. You are the screen.";
-  }
+  <script>
+    (function() {
+      const score = Number(localStorage.getItem("goonerScore"));
+      let result = "";
 
-  document.getElementById("result").textContent = result;
+      if (isNaN(score)) {
+        document.querySelector(".container").innerHTML = `
+          <h1>Oops!</h1>
+          <p>Looks like you haven’t taken the test yet.</p>
+          <a href="index.html">
+            <button>Take the Gooner Test</button>
+          </a>
+        `;
+        return;
+      }
 
-  // Encode the result for the share message
-  const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
+      if (score < 10) {
+        result = "🍼 Casual Observer – still in denial.";
+      } else if (score < 20) {
+        result = "😏 Intermediate Stroker – flirting with obsession.";
+      } else if (score < 30) {
+        result = "🔥 Practicing Gooner – surrender is near.";
+      } else if (score < 40) {
+        result = "🧠 Mindless Edge Wizard – you've ascended.";
+      } else {
+        result = "👑 GOON GOD – totally consumed. You are the screen.";
+      }
 
-  function shareTwitter() {
-    window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
-  }
+      document.getElementById("result").textContent = result;
 
-  function shareFacebook() {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
-  }
+      const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
 
-  function shareWhatsApp() {
-    window.open(`https://wa.me/?text=${shareText}`, '_blank');
-  }
+      window.shareTwitter = function() {
+        window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
+      };
 
-  function copyLink() {
-    navigator.clipboard.writeText("https://amiagooner.com/results.html").then(() => {
-      alert("Link copied to clipboard!");
-    });
-  }
-</script>
+      window.shareFacebook = function() {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
+      };
+
+      window.shareWhatsApp = function() {
+        window.open(`https://wa.me/?text=${shareText}`, '_blank');
+      };
+
+      window.copyLink = function() {
+        navigator.clipboard.writeText("https://amiagooner.com/results.html").then(() => {
+          alert("Link copied to clipboard!");
+        });
+      };
+    })();
+  </script>
+</body>
+</html>
