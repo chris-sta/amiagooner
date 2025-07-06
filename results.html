@@ -11,21 +11,23 @@
         <button>Take the Gooner Test</button>
       </a>
     `;
-  } else {
-    if (score < 10) {
-      result = "🍼 Casual Observer – still in denial.";
-    } else if (score < 20) {
-      result = "😏 Intermediate Stroker – flirting with obsession.";
-    } else if (score < 30) {
-      result = "🔥 Practicing Gooner – surrender is near.";
-    } else if (score < 40) {
-      result = "🧠 Mindless Edge Wizard – you've ascended.";
-    } else {
-      result = "👑 GOON GOD – totally consumed. You are the screen.";
-    }
-
-    document.getElementById("result").textContent = result;
+    // Stop running further script since no score
+    return;
   }
+
+  if (score < 10) {
+    result = "🍼 Casual Observer – still in denial.";
+  } else if (score < 20) {
+    result = "😏 Intermediate Stroker – flirting with obsession.";
+  } else if (score < 30) {
+    result = "🔥 Practicing Gooner – surrender is near.";
+  } else if (score < 40) {
+    result = "🧠 Mindless Edge Wizard – you've ascended.";
+  } else {
+    result = "👑 GOON GOD – totally consumed. You are the screen.";
+  }
+
+  document.getElementById("result").textContent = result;
 
   // Encode the result for the share message
   const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
