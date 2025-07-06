@@ -1,21 +1,6 @@
-<!-- results.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Result</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Your Gooner Rating</h1>
-    <p id="result"></p>
-    <a href="/">Try Again</a>
-  </div>
-
-  <script>
+<script>
   const score = Number(localStorage.getItem("goonerScore"));
+  let result = "";
 
   if (isNaN(score)) {
     // No score found, likely direct access
@@ -27,8 +12,6 @@
       </a>
     `;
   } else {
-    let result = "";
-
     if (score < 10) {
       result = "🍼 Casual Observer – still in denial.";
     } else if (score < 20) {
@@ -43,7 +26,6 @@
 
     document.getElementById("result").textContent = result;
   }
-</script>
 
   // Encode the result for the share message
   const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
@@ -66,14 +48,3 @@
     });
   }
 </script>
-
-  <div id="share-section">
-  <p>Share your result:</p>
-  <button onclick="shareTwitter()">Twitter / X</button>
-  <button onclick="shareFacebook()">Facebook</button>
-  <button onclick="shareWhatsApp()">WhatsApp</button>
-  <button onclick="copyLink()">Copy Link</button>
-</div>
-
-</body>
-</html>
