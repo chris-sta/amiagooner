@@ -122,3 +122,23 @@ a {
     font-size: 1.5rem;
   }
 }
+
+#share-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#share-section button {
+  margin: 0.5rem;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#share-section button:hover {
+  background: #000;
+}
+
