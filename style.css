@@ -142,3 +142,19 @@ a {
   background: #000;
 }
 
+.progress-bar {
+  background-color: #ddd;
+  border-radius: 10px;
+  height: 12px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background-color: #cc0000;
+  height: 100%;
+  width: 0%; /* this will be overridden by inline style */
+  border-radius: 10px 0 0 10px;
+  transition: width 0.4s ease;
+}
