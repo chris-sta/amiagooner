@@ -1,4 +1,27 @@
-/* Base Reset & Responsive Setup */
+/* === Animation Keyframes === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === Global styles (unchanged) === */
 * {
   box-sizing: border-box;
 }
@@ -11,23 +34,25 @@ body {
   padding: 1rem;
 }
 
-/* Container Styling */
+/* === Container === */
 .container {
   max-width: 600px;
   margin: auto;
   background: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease both;
 }
 
-/* Typography */
+/* === Headings === */
 h1 {
   text-align: center;
   margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
-/* Navigation Bar */
+/* === Navigation === */
 nav {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
@@ -50,15 +75,32 @@ nav a {
   color: #cc0000;
   font-weight: bold;
   font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   text-decoration: underline;
+  color: #a30000;
 }
 
-/* Quiz Form */
+/* === General link styling === */
+a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #cc0000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #a30000;
+}
+
+/* === Questions and labels === */
 .question {
   margin-bottom: 1.5rem;
+  animation: slideIn 0.5s ease both;
 }
 
 label {
@@ -67,7 +109,7 @@ label {
   font-size: 1rem;
 }
 
-/* Button Styling */
+/* === Buttons === */
 button {
   display: block;
   width: 100%;
@@ -79,50 +121,31 @@ button {
   border-radius: 6px;
   cursor: pointer;
   margin-bottom: 1rem;
-  box-sizing: border-box;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-}
-
 
 button:hover {
   background: #a30000;
+  transform: scale(1.02);
 }
 
-/* Links */
-a {
+/* === Styled link as button === */
+.button-link {
   display: inline-block;
-  margin-top: 1rem;
-  color: #cc0000;
+  background: #cc0000;
+  color: white;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-/* Responsive Tweaks */
-@media (max-width: 480px) {
-  .container {
-    padding: 1.5rem 1rem;
-  }
-
-  nav a {
-    font-size: 0.95rem;
-  }
-
-  button {
-    font-size: 1rem;
-    padding: 0.7rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
+.button-link:hover {
+  background: #a30000;
 }
 
+/* === Share section === */
 #share-section {
   margin-top: 2rem;
   text-align: center;
@@ -136,12 +159,14 @@ a {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 #share-section button:hover {
   background: #000;
 }
 
+/* === Progress bar === */
 .progress-container {
   display: flex;
   flex-direction: column;
@@ -160,7 +185,7 @@ a {
 .progress-fill {
   background-color: #cc0000;
   height: 100%;
-  width: 0%; /* overridden by inline style */
+  width: 0%; /* should be controlled inline via JS */
   border-radius: 10px 0 0 10px;
   transition: width 0.4s ease;
 }
@@ -172,4 +197,28 @@ a {
   text-align: right;
   color: #333;
   font-size: 0.9rem;
+}
+
+/* === Responsive tweaks === */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  nav ul {
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
 }
