@@ -227,12 +227,17 @@ button:hover {
 
 .image-container {
   margin: 1rem 0;
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
 .image-container img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
