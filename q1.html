@@ -29,6 +29,7 @@
 const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
 scores["q1"] = points;
 localStorage.setItem("goonerScores", JSON.stringify(scores));
+window.location.href = "q2.html";
     }
   </script>
 </body>
