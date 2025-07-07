@@ -22,55 +22,57 @@
   </div>
 
   <script>
-    (function() {
-      const score = Number(localStorage.getItem("goonerScore"));
-      let result = "";
+  (function() {
+  const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
+  const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
 
-      if (isNaN(score)) {
-        document.querySelector(".container").innerHTML = `
-          <h1>Oops!</h1>
-          <p>Looks like you haven’t taken the test yet.</p>
-          <a href="index.html">
-            <button>Take the Gooner Test</button>
-          </a>
-        `;
-        return;
-      }
+  if (isNaN(totalScore) || totalScore === 0) {
+    document.querySelector(".container").innerHTML = `
+      <h1>Oops!</h1>
+      <p>Looks like you haven’t taken the test yet.</p>
+      <a href="index.html">
+        <button>Take the Gooner Test</button>
+      </a>
+    `;
+    return;
+  }
 
-      if (score < 10) {
-        result = "🍼 Casual Observer – still in denial.";
-      } else if (score < 20) {
-        result = "😏 Intermediate Stroker – flirting with obsession.";
-      } else if (score < 30) {
-        result = "🔥 Practicing Gooner – surrender is near.";
-      } else if (score < 40) {
-        result = "🧠 Mindless Edge Wizard – you've ascended.";
-      } else {
-        result = "👑 GOON GOD – totally consumed. You are the screen.";
-      }
+  let result = "";
 
-      document.getElementById("result").textContent = result;
+  if (totalScore < 10) {
+    result = "🍼 Casual Observer – still in denial.";
+  } else if (totalScore < 20) {
+    result = "😏 Intermediate Stroker – flirting with obsession.";
+  } else if (totalScore < 30) {
+    result = "🔥 Practicing Gooner – surrender is near.";
+  } else if (totalScore < 40) {
+    result = "🧠 Mindless Edge Wizard – you've ascended.";
+  } else {
+    result = "👑 GOON GOD – totally consumed. You are the screen.";
+  }
 
-      const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
+  document.getElementById("result").textContent = result;
 
-      window.shareTwitter = function() {
-        window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
-      };
+  const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
 
-      window.shareFacebook = function() {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
-      };
+  window.shareTwitter = function() {
+    window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
+  };
 
-      window.shareWhatsApp = function() {
-        window.open(`https://wa.me/?text=${shareText}`, '_blank');
-      };
+  window.shareFacebook = function() {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
+  };
 
-      window.copyLink = function() {
-        navigator.clipboard.writeText("https://amiagooner.com/results.html").then(() => {
-          alert("Link copied to clipboard!");
-        });
-      };
-    })();
+  window.shareWhatsApp = function() {
+    window.open(`https://wa.me/?text=${shareText}`, '_blank');
+  };
+
+  window.copyLink = function() {
+    navigator.clipboard.writeText("https://amiagooner.com/results.html").then(() => {
+      alert("Link copied to clipboard!");
+    });
+  };
+})();
   </script>
 </body>
 </html>
