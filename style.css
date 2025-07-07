@@ -38,6 +38,8 @@ body {
 .container {
   max-width: 600px;
   margin: auto;
+  margin-top: 5vh;
+  text-align: center;
   background: white;
   padding: 3rem;
   border-radius: 16px;
@@ -113,12 +115,12 @@ label {
 button {
   display: block;
   width: 100%;
-  padding: 0.8rem;
-  font-size: 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
   background: #cc0000;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   margin-bottom: 1rem;
   transition: background 0.3s ease, transform 0.2s ease;
