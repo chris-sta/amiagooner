@@ -26,9 +26,9 @@
 
   <script>
     function submitAnswer(points) {
-      const current = Number(localStorage.getItem("goonerScore") || 0);
-      localStorage.setItem("goonerScore", current + points);
-      window.location.href = "results.html"; // update to next question
+const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
+scores["q1"] = points;
+localStorage.setItem("goonerScores", JSON.stringify(scores));
     }
   </script>
 </body>
