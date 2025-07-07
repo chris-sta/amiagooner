@@ -144,8 +144,8 @@ a {
 
 .progress-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -166,6 +166,7 @@ a {
 }
 
 .progress-text {
+  margin-top: 0.4rem;
   font-weight: bold;
   min-width: 35px;
   text-align: right;
