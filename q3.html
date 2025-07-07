@@ -30,18 +30,18 @@
 </div>
     <p>Who's this?</p>
     <div class="image-container">
-      <img src="images/q1.jpg" alt="Visual for question 1" />
+      <img src="https://chris-sta.github.io/amiagooner/images/img1.webp" alt="Visual for question 1" />
     </div>
     <button onclick="submitAnswer(10)">Sara Jay</button>
     <button onclick="submitAnswer(20)">Violet Myers</button>
-    <button onclick="submitAnswer(30)">30–60 minutes</button>
-    <button onclick="submitAnswer(40)">Time is a construct</button>
+    <button onclick="submitAnswer(30)">Ava Addams</button>
+    <button onclick="submitAnswer(40)">Priya Rai</button>
   </div>
 
   <script>
     function submitAnswer(points) {
 const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
-scores["q2"] = points;
+scores["q3"] = points;
 localStorage.setItem("goonerScores", JSON.stringify(scores));
 window.location.href = "results.html";
     }
