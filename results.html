@@ -52,6 +52,7 @@
   }
 
   document.getElementById("result").textContent = result;
+  localStorage.removeItem("goonerScores");
 
   const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
 
