@@ -47,6 +47,11 @@ body {
   animation: fadeIn 0.6s ease both;
 }
 
+.container.wide {
+  max-width: 100%;
+  padding: 1rem;
+}
+
 /* === Headings === */
 h1 {
   text-align: center;
@@ -259,7 +264,8 @@ button:hover {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-
+  height: 40vw;
+  max-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -278,6 +284,7 @@ button:hover {
   height: 100%;
   object-fit: cover;       /* crop as needed */
   object-position: center; /* center the crop */
+  max-height: 35vh;
   display: block;
   pointer-events: none;
 }
