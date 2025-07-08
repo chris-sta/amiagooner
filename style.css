@@ -279,4 +279,6 @@ button:hover {
   object-fit: cover;
   display: block;
   pointer-events: none;
+  object-fit: cover;
+  object-position: center;
 }
