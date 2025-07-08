@@ -47,7 +47,7 @@
   <script>
     function submitAnswer(points) {
       const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
-      scores["q3"] = points;
+      scores["q4"] = points;
       localStorage.setItem("goonerScores", JSON.stringify(scores));
       window.location.href = "results.html";
     }
