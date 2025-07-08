@@ -245,28 +245,18 @@ button:hover {
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
-  width: 100%;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
 }
 
 .photo-grid button {
-  max-width: 250px;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border: none;
-  padding: 0;
-  margin: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-  background: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 250px; 
+    height: auto;
+    margin-top: 10px;
+    display: block;
+    margin: auto;
+    border: 3px lightblue solid;
 }
 .photo-grid button:hover {
   transform: scale(1.05);
