@@ -47,16 +47,11 @@ body {
   animation: fadeIn 0.6s ease both;
 }
 
-.container.wide {
-  max-width: 100%;
-  padding: 1rem;
-}
-
 /* === Headings === */
 h1 {
   text-align: center;
   margin-top: 0rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   line-height: 1.2;
 }
 
@@ -107,14 +102,8 @@ a:hover {
 
 /* === Questions and labels === */
 .question {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   animation: slideIn 0.5s ease both;
-}
-
-label {
-  display: block;
-  margin: 0.5rem 0;
-  font-size: 1rem;
 }
 
 /* === Buttons === */
@@ -128,7 +117,7 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
