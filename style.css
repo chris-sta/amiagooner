@@ -256,6 +256,8 @@ button:hover {
   background: none;
   cursor: pointer;
   width: 100%;
+  max-width: 250px;
+  margin: auto;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   overflow: hidden;
