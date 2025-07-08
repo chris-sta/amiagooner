@@ -188,7 +188,7 @@ button:hover {
 .progress-fill {
   background-color: #cc0000;
   height: 100%;
-  width: 0%; /* should be controlled inline via JS */
+  width: 0%; /* I'm controlling this inline via JS */
   border-radius: 10px 0 0 10px;
   transition: width 0.4s ease;
 }
