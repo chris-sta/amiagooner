@@ -1,0 +1,56 @@
+<!-- q4.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZV2HMMLWF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YZV2HMMLWF');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Question 4</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Question 4/10</h1>
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 40%;"></div>
+      </div>
+      <div class="progress-text">40%</div>
+    </div>
+    <p>Who's this?</p>
+    
+    <div class="photo-grid">
+      <button onclick="submitAnswer(10)">
+        <img src="https://chris-sta.github.io/amiagooner/images/img1.webp" alt="Sara Jay" />
+      </button>
+      <button onclick="submitAnswer(20)">
+        <img src="https://chris-sta.github.io/amiagooner/images/img1.webp" alt="Violet Myers" />
+      </button>
+      <button onclick="submitAnswer(30)">
+        <img src="https://chris-sta.github.io/amiagooner/images/img1.webp" alt="Ava Addams" />
+      </button>
+      <button onclick="submitAnswer(40)">
+        <img src="https://chris-sta.github.io/amiagooner/images/img1.webp" alt="Priya Rai" />
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function submitAnswer(points) {
+      const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
+      scores["q3"] = points;
+      localStorage.setItem("goonerScores", JSON.stringify(scores));
+      window.location.href = "results.html";
+    }
+  </script>
+</body>
+</html>
