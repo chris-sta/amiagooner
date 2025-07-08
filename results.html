@@ -23,7 +23,7 @@
     <h1>Your Gooner Rating</h1>
     <p id="result"></p>
     <a href="/" style="display:block; margin-top:1rem; color:#cc0000;">Try Again</a>
-
+    
     <div id="share-section" style="margin-top: 2rem; text-align:center;">
       <p>Share your result:</p>
       <button onclick="shareTwitter()">Twitter / X</button>
@@ -33,50 +33,70 @@
     </div>
   </div>
 
-  <script>
-  (function() {
-  const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
-  const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+<script>
+  function calculateResult() {
+    const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
+    const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
 
-  if (isNaN(totalScore) || totalScore === 0) {
-    document.querySelector(".container").innerHTML = `
-      <h1>Oops!</h1>
-      <p>Looks like you haven’t taken the test yet.</p>
-      <a href="index.html">
-        <button>Take the Gooner Test</button>
-      </a>
-    `;
-    return;
+    if (isNaN(totalScore) || totalScore === 0) {
+      return null;
+    }
+
+    if (totalScore < 21) {
+      return "🍼 Casual Observer – still in denial.";
+    } else if (totalScore < 41) {
+      return "😏 Intermediate Stroker – flirting with obsession.";
+    } else if (totalScore < 61) {
+      return "🔥 Practicing Gooner – surrender is near.";
+    } else if (totalScore < 81) {
+      return "🧠 Mindless Edge Wizard – you've ascended.";
+    } else {
+      return "👑 GOON GOD – totally consumed. You are the screen.";
+    }
   }
 
-  let result = "";
-
-  if (totalScore < 21) {
-    result = "🍼 Casual Observer – still in denial.";
-  } else if (totalScore < 41) {
-    result = "😏 Intermediate Stroker – flirting with obsession.";
-  } else if (totalScore < 61) {
-    result = "🔥 Practicing Gooner – surrender is near.";
-  } else if (totalScore < 81) {
-    result = "🧠 Mindless Edge Wizard – you've ascended.";
-  } else {
-    result = "👑 GOON GOD – totally consumed. You are the screen.";
+  function displayResult(result) {
+    const container = document.querySelector(".container");
+    if (!result) {
+      container.innerHTML = `
+        <h1>Oops!</h1>
+        <p>Looks like you haven’t taken the test yet.</p>
+        <a href="index.html">
+          <button>Take the Gooner Test</button>
+        </a>
+      `;
+    } else {
+      const resultEl = document.getElementById("result");
+      if (resultEl) {
+        resultEl.textContent = result;
+      }
+    }
   }
 
-  document.getElementById("result").textContent = result;
-  localStorage.removeItem("goonerScores");
+  function setupSharing(result) {
+    if (!result) return;
 
-  const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
+    const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
 
-  window.shareTwitter = function() {
-    window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
-  };
+    window.shareTwitter = function() {
+      window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
+    };
 
-  window.shareFacebook = function() {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
-  };
+    window.shareFacebook = function() {
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
+    };
+  }
+
   
-})();
-  </script>
+  (function init() {
+    const result = calculateResult();
+    displayResult(result);
+    setupSharing(result);
+    if (result) {
+      localStorage.removeItem("goonerScores");
+    }
+  })();
+</script>
+
 </body>
 </html>
