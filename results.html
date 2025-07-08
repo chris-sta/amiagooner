@@ -75,16 +75,7 @@
   window.shareFacebook = function() {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
   };
-
-  window.shareWhatsApp = function() {
-    window.open(`https://wa.me/?text=${shareText}`, '_blank');
-  };
-
-  window.copyLink = function() {
-    navigator.clipboard.writeText("https://amiagooner.com/results.html").then(() => {
-      alert("Link copied to clipboard!");
-    });
-  };
+  
 })();
   </script>
 </body>
