@@ -245,29 +245,39 @@ button:hover {
 
 .photo-grid {
   display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 10px;
-}
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .photo-grid button {
-  max-width: 250px; 
-    height: auto;
-    margin-top: 10px;
-    display: block;
-    margin: auto;
-    border: 3px lightblue solid;
+  width: 100%;
+  aspect-ratio: 1 / 1;     /* keep square */
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
+
 .photo-grid button:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .photo-grid img {
-  max-width: 250px; 
-    height: auto;
-    margin-top: 10px;
-    display: block;
-    margin: auto;
-    border: 3px lightblue solid;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* crop as needed */
+  object-position: center; /* center the crop */
+  display: block;
+  pointer-events: none;
 }
