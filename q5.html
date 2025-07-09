@@ -1,0 +1,48 @@
+<!-- q5.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZV2HMMLWF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YZV2HMMLWF');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Question 5</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Question 5/10</h1>
+    <div class="progress-container">
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 50%;"></div>
+  </div>
+</div>
+    <p>Ideal gooning setup?</p>
+    
+    <div class="photo-grid">
+      <button onclick="submitAnswer(10)"><img src="images/img6.webp"/></button>
+      <button onclick="submitAnswer(10)"><img src="images/img7.webp"/></button>
+      <button onclick="submitAnswer(10)"><img src="images/img8.webp"/></button>
+      <button onclick="submitAnswer(10)"><img src="images/img9.webp"/></button>
+    </div>
+  </div>
+
+  <script>
+    function submitAnswer(points) {
+      const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
+      scores["q5"] = points;
+      localStorage.setItem("goonerScores", JSON.stringify(scores));
+      window.location.href = "results.html";
+    }
+  </script>
+</body>
+</html>
