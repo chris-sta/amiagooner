@@ -1,4 +1,4 @@
-/Animation/
+/*Animation*/
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -21,7 +21,7 @@
   }
 }
 
-/Global styles/
+/*Global styles*/
 * {
   box-sizing: border-box;
 }
@@ -34,7 +34,7 @@ body {
   padding: 1rem;
 }
 
-/Container/
+/*Container*/
 .container {
   max-width: 600px;
   margin: auto;
@@ -48,7 +48,7 @@ body {
   animation: fadeIn 0.6s ease both;
 }
 
-/Headings/
+/*Headings*/
 h1 {
   text-align: center;
   margin-top: 0rem;
@@ -56,7 +56,7 @@ h1 {
   line-height: 1.2;
 }
 
-/Navigation (need to add this later)/
+/*Navigation (need to add this later)*/
 nav {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
@@ -87,7 +87,7 @@ nav a:hover {
   color: #a30000;
 }
 
-/General link styling/
+/*General link styling*/
 a {
   display: inline-block;
   margin-top: 1rem;
@@ -101,13 +101,13 @@ a:hover {
   color: #a30000;
 }
 
-/Questions and labels/
+/*Questions and labels*/
 .question {
   margin-bottom: 0.8rem;
   animation: slideIn 0.5s ease both;
 }
 
-/Buttons/
+/*Buttons*/
 button {
   display: block;
   width: 100%;
@@ -127,7 +127,7 @@ button:hover {
   transform: scale(1.02);
 }
 
-/Styled link as button/
+/*Styled link as button*/
 .button-link {
   display: inline-block;
   background: #cc0000;
@@ -143,7 +143,7 @@ button:hover {
   background: #a30000;
 }
 
-/Share section (i need to fix this shit later, it looks insane/
+/*Share section (i need to fix this shit later, it looks insane*/
 #share-section {
   margin-top: 2rem;
   text-align: center;
@@ -164,7 +164,7 @@ button:hover {
   background: #000;
 }
 
-/Progress bar/
+/*Progress bar*/
 .progress-container {
   display: flex;
   flex-direction: column;
@@ -189,7 +189,7 @@ button:hover {
 }
 
 
-/Responsive tweaks/
+/*Responsive tweaks*/
 @media (max-width: 480px) {
   .container {
     padding: 1.5rem 1rem;
@@ -212,7 +212,7 @@ button:hover {
     font-size: 1.5rem;
   }
 }
-
+/*single image on page 2*/
 .image-container {
   margin: 1rem 0;
   display: flex;
@@ -229,7 +229,7 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
-
+ /* 4 x 4 images */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
