@@ -25,7 +25,6 @@
   <div class="progress-bar">
     <div class="progress-fill" style="width: 40%;"></div>
   </div>
-  <div class="progress-text">40%</div>
 </div>
     <p>Which Dr. Strange is post-goon?</p>
     
@@ -42,7 +41,7 @@
       const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
       scores["q4"] = points;
       localStorage.setItem("goonerScores", JSON.stringify(scores));
-      window.location.href = "results.html";
+      window.location.href = "q5.html";
     }
   </script>
 </body>
