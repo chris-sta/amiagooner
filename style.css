@@ -56,36 +56,6 @@ h1 {
   line-height: 1.2;
 }
 
-/*Navigation (need to add this later)*/
-nav {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 0.5rem 1rem;
-  margin-bottom: 2rem;
-}
-
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: #cc0000;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  text-decoration: underline;
-  color: #a30000;
-}
 
 /*General link styling*/
 a {
@@ -99,6 +69,23 @@ a {
 a:hover {
   text-decoration: underline;
   color: #a30000;
+}
+
+.contact-link {
+text-align: center;
+margin-top: 1vh;
+}
+
+.contact-link a {
+color: #666666c0;
+}
+
+.contact-link a:hover {
+
+  text-decoration: underline;
+  color:#424242c0;
+  transform: scale(1.06);
+;
 }
 
 /*Questions and labels*/
