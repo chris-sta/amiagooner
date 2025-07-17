@@ -1,4 +1,4 @@
-<!-- q7.html -->
+<!-- q8.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,31 +16,34 @@
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Question 7</title>
+  <title>Question 8</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Question 7/10</h1>
+    <h1>Question 8/10</h1>
     <div class="progress-container">
   <div class="progress-bar">
-    <div class="progress-fill" style="width: 70%;"></div>
+    <div class="progress-fill" style="width: 80%;"></div>
   </div>
 </div>
-     <p>Favorite gooning snack?</p>
+    <p>What is the minimum number of gooners required for a "goonfestation" to occur?</p>
+    <div class="image-container">
+      <img src="images/img10.webp"/>
+    </div>
+    <button onclick="submitAnswer(0)">3</button>
+    <button onclick="submitAnswer(1)">4</button>
+    <button onclick="submitAnswer(4)">5</button>
+    <button onclick="submitAnswer(1)">6</button>
     
-    <button onclick="submitAnswer(1)">Chips & soda</button>
-    <button onclick="submitAnswer(2)">Energy drinks</button>
-    <button onclick="submitAnswer(3)">Something Sweet, to reward yourself</button>
-    <button onclick="submitAnswer(4)">Nothing, pure focus</button>
   </div>
 
   <script>
     function submitAnswer(points) {
 const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
-scores["q7"] = points;
+scores["q8"] = points;
 localStorage.setItem("goonerScores", JSON.stringify(scores));
-window.location.href = "q8.html";
+window.location.href = "results.html";
     }
   </script>
 </body>
