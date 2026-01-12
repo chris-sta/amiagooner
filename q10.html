@@ -1,4 +1,4 @@
-<!-- q8.html -->
+<!-- q10.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,34 +16,31 @@
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Question 8</title>
+  <title>Question 10</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Question 8/10</h1>
+    <h1>Question 10/10</h1>
     <div class="progress-container">
   <div class="progress-bar">
-    <div class="progress-fill" style="width: 80%;"></div>
+    <div class="progress-fill" style="width: 100%;"></div>
   </div>
 </div>
-    <p>What is the minimum number of gooners required for a "goonfestation" to occur?</p>
-    <div class="image-container">
-      <img src="images/img10.webp"/>
-    </div>
-    <button onclick="submitAnswer(0)">3</button>
-    <button onclick="submitAnswer(1)">4</button>
-    <button onclick="submitAnswer(4)">5</button>
-    <button onclick="submitAnswer(1)">6</button>
+     <p>What is Jelqing?</p>
     
+    <button onclick="submitAnswer(1)">To be jealous of someone</button>
+    <button onclick="submitAnswer(2)">An exercise to increase penis size naturally</button>
+    <button onclick="submitAnswer(3)">Hanging around with someone you don't like</button>
+    <button onclick="submitAnswer(4)">To eat Jello out of a bootyhole</button>
   </div>
 
   <script>
     function submitAnswer(points) {
 const scores = JSON.parse(localStorage.getItem("goonerScores") || "{}");
-scores["q8"] = points;
+scores["q10"] = points;
 localStorage.setItem("goonerScores", JSON.stringify(scores));
-window.location.href = "q9.html";
+window.location.href = "results.html";
     }
   </script>
 </body>
