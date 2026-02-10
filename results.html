@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZV2HMMLWF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YZV2HMMLWF');
+  </script>
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZV2HMMLWF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YZV2HMMLWF');
-</script>
-
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Result</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="container">
+  <div class="container result-page">
     <h1>Your Gooner Rating</h1>
-    <p id="result"></p>
-    <a href="/" style="display:block; margin-top:1rem; color:#cc0000;">Try Again</a>
-    
-    <div id="share-section" style="margin-top: 2rem; text-align:center;">
-      <p>Share your result:</p>
-      <button onclick="shareTwitter()">Twitter / X</button>
-      <button onclick="shareFacebook()">Facebook</button>
-      <button onclick="shareWhatsApp()">WhatsApp</button>
-      <button onclick="copyLink()">Copy Link</button>
+
+    <div class="result-top">
+      <img id="result-image" alt="" />
+      <p id="result"></p>
     </div>
+
+    <p id="result-description"></p>
+
+    <a href="/" class="try-again">Try Again</a>
   </div>
 
 <script>
@@ -43,20 +39,41 @@
     }
 
     if (totalScore < 6) {
-      return "🍼 Casual Observer – still in denial.";
+      return {
+        text: "Beginner Gooner",
+        image: "/images/res1.webp",
+        description: "Still in denial. You're just starting out. Watching from the sidelines, occasionally checking scores, but mostly still in denial about your true nature."
+      };
     } else if (totalScore < 12) {
-      return "😏 Intermediate Stroker – flirting with obsession.";
+      return {
+        text: "Intermediate Stroker",
+        image: "/images/res2.webp",
+        description: "You're getting more invested. Scores matter more, discussions are longer, and your brain is learning the routines of a proper Gooner."
+      };
     } else if (totalScore < 18) {
-      return "🔥 Practicing Gooner – surrender is near.";
+      return {
+        text: "Practicing Gooner",
+        image: "/images/res3.webp",
+        description: "You're no longer casual. Sessions are longer, resistance is weaker, and you tell yourself you could stop… but you don't."
+      };
     } else if (totalScore < 24) {
-      return "🧠 Mindless Gooner – you've ascended.";
+      return {
+        text: "Mindless Gooner",
+        image: "/images/res4.webp",
+        description: "You live and breathe for the Goon. Daily routines revolve around analyzing the next optimal time to goon. Obsession is near total."
+      };
     } else {
-      return "👑 GOON GOD – totally consumed. You are the abyss staring back.";
+      return {
+        text: "GOON GOD",
+        image: "/images/res5.webp",
+        description: "Totally consumed. You are the abyss staring back. Reality bends around your devotion, and nothing else exists in comparison."
+      };
     }
   }
 
   function displayResult(result) {
     const container = document.querySelector(".container");
+
     if (!result) {
       container.innerHTML = `
         <h1>Oops!</h1>
@@ -65,38 +82,27 @@
           <button>Take the Gooner Test</button>
         </a>
       `;
-    } else {
-      const resultEl = document.getElementById("result");
-      if (resultEl) {
-        resultEl.textContent = result;
-      }
+      return;
     }
+
+    const resultEl = document.getElementById("result");
+    const imageEl = document.getElementById("result-image");
+    const descEl = document.getElementById("result-description");
+
+    resultEl.textContent = result.text;
+    imageEl.src = result.image;
+    imageEl.alt = result.text;
+    descEl.textContent = result.description;
   }
 
-  function setupSharing(result) {
-    if (!result) return;
-
-    const shareText = encodeURIComponent(`I got: ${result} on the GOONER TEST 🧪\nTake it yourself: https://amiagooner.com`);
-
-    window.shareTwitter = function() {
-      window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
-    };
-
-    window.shareFacebook = function() {
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=https://amiagooner.com`, '_blank');
-    };
-  }
-
-  
   (function init() {
     const result = calculateResult();
     displayResult(result);
-    setupSharing(result);
+
     if (result) {
       localStorage.removeItem("goonerScores");
     }
   })();
 </script>
-
 </body>
 </html>

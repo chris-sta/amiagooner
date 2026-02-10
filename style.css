@@ -1,27 +1,13 @@
-/*Animation*/
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/*Global styles*/
 * {
   box-sizing: border-box;
 }
@@ -34,30 +20,36 @@ body {
   padding: 1rem;
 }
 
-/*Container*/
 .container {
   max-width: 600px;
   margin: auto;
   margin-top: 1vh;
   text-align: center;
   background: white;
-  padding: 3rem;
-  padding-top: 1rem;
+  padding: 3rem 1rem 1rem 1rem;
   border-radius: 16px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   animation: fadeIn 0.6s ease both;
 }
 
-/*Headings*/
-h1 {
+
+.container.result-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-top: 0rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+
+h1 {
+  margin-top: 0;
   margin-bottom: 0.8rem;
   line-height: 1.2;
 }
 
-
-/*General link styling*/
 a {
   display: inline-block;
   margin-top: 1rem;
@@ -72,29 +64,25 @@ a:hover {
 }
 
 .contact-link {
-text-align: center;
-margin-top: 1vh;
+  text-align: center;
+  margin-top: 1vh;
 }
 
 .contact-link a {
-color: #666666c0;
+  color: #666666c0;
 }
 
 .contact-link a:hover {
-
   text-decoration: underline;
-  color:#424242c0;
+  color: #424242c0;
   transform: scale(1.06);
-;
 }
 
-/*Questions and labels*/
 .question {
   margin-bottom: 0.8rem;
   animation: slideIn 0.5s ease both;
 }
 
-/*Buttons*/
 button {
   display: block;
   width: 100%;
@@ -114,7 +102,6 @@ button:hover {
   transform: scale(1.02);
 }
 
-/*Styled link as button*/
 .button-link {
   display: inline-block;
   background: #cc0000;
@@ -130,28 +117,6 @@ button:hover {
   background: #a30000;
 }
 
-/*Share section (i need to fix this shit later, it looks insane*/
-#share-section {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-#share-section button {
-  margin: 0.5rem;
-  background: #333;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#share-section button:hover {
-  background: #000;
-}
-
-/*Progress bar*/
 .progress-container {
   display: flex;
   flex-direction: column;
@@ -170,13 +135,11 @@ button:hover {
 .progress-fill {
   background-color: #cc0000;
   height: 100%;
-  width: 0%; /* I'm controlling this inline via JS */
+  width: 0%;
   border-radius: 10px 0 0 10px;
   transition: width 0.4s ease;
 }
 
-
-/*Responsive tweaks*/
 @media (max-width: 480px) {
   .container {
     padding: 1.5rem 1rem;
@@ -199,7 +162,7 @@ button:hover {
     font-size: 1.5rem;
   }
 }
-/*single image on page 2*/
+
 .image-container {
   margin: 1rem 0;
   display: flex;
@@ -216,7 +179,7 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
- /* 4 x 4 images */
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -257,3 +220,136 @@ button:hover {
   pointer-events: none;
 }
 
+.result-top {
+  flex-shrink: 0;
+}
+
+#result-image {
+  display: block;
+  margin: 1rem auto;
+  max-width: 100%;
+  height: auto;
+  max-height: clamp(220px, 45vh, 420px);
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+#result {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin: 0.5rem 0 0;
+}
+
+#result-description {
+  margin-top: 1rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.try-again {
+  margin-top: 1rem;
+  color: #cc0000;
+}
+
+.contact-page #overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.contact-page #popup {
+  background: rgba(255, 255, 255, 0.85);
+  color: #292828;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(36, 35, 35, 0.3);
+}
+
+.contact-page #popup h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.contact-page #popup img#instagramLogo {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.contact-page #popup img#instagramLogo:hover {
+  transform: scale(1.1);
+}
+
+.contact-page #popup .popupBtn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #cc0000;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.contact-page #popup .popupBtn:hover {
+  background-color: #a30000;
+  transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+  .contact-page #popup {
+    padding: 1.5rem;
+  }
+
+  .contact-page #popup h2 {
+    font-size: 1.25rem;
+  }
+
+  .contact-page #popup .popupBtn {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+
+
+.popup a.backBtn {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.popup a.backBtn:hover {
+  background-color: #a30000;
+  transform: scale(1.02);
+}
